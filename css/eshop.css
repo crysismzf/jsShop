@@ -1,0 +1,85 @@
+html {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+body {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    justify-content: stretch;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+}
+aside {
+    margin-right: 20px;
+    flex-shrink: 3;
+    min-width: 250px;
+}
+section {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    justify-content: stretch;
+    flex-shrink: 9;
+}
+.filter {
+    margin-bottom: 20px;
+}
+section ul {
+    list-style: none;
+    display: inline;
+}
+section ul li {
+    display: inline;
+}
+.catalog {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+.catalog>div{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+}
+.catalog__item {
+    margin: 10px;
+}
+.catalog__item img {
+    width: 200px;
+    height: 200px;
+}
+
+table {
+    width: 300px; /* Ширина таблицы */
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+	margin-top: 10%;
+	margin-left: 10%;
+   }
+   td, th {
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+   background: #b0e0e6;
+   }
+   

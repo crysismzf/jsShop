@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/eshop.css">
+	
+</head>
+<body>
+    <aside>
+        <div class="filter">
+            <p>По категории</p>
+            <ul class="filter__categories">
+                
+            </ul>
+            <p>По стоимости</p>
+            <ul>
+                <li id="less_10000"><a href="#" data-price="less-10000">До 10 000р</a> <span class="badge">11</span></li>
+                <li id="more_10000"><a href="#" data-price="more-10000">От 10 000р</a> <span class="badge">9</span></li>
+				<li id="resetFilter"><a href = "#"> Сброс всех фильтров</a></li>
+            </ul>
+        </div>
+    </aside>
+    <section class="main">
+        <div class="sortting">
+            <span>Стомость</span>
+            <ul>
+                <li>
+                    <a id="CostUp" href="#">↑</a>
+                </li>
+                <li>
+                    <a id="CostDown" href="#">↓</a>
+                </li>
+            </ul>
+            <span>Вес</span>
+            <ul>
+                <li>
+                    <a id="WeightUp" href="#">↑</a>
+                </li>
+                <li>
+                    <a id="WeightDown" href="#">↓</a>
+                </li>
+            </ul>
+            <span>Популярность</span>
+            <ul>
+                <li>
+                    <a id="VogueUp" href="#">↑</a>
+                </li>
+                <li>
+                    <a id="VogueDown" href="#">↓</a>
+                </li>
+            </ul>
+			<ul>
+                <li>
+                    <a id="backet" href="#">Корзина</a>
+                </li>
+             </ul>
+        </div>
+        <div class="catalog">
+           
+        </div>
+    </section>
+	<!-- <script type="text/javascript" src="goods.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/eshop.js"></script>
+	</body>
+</html>

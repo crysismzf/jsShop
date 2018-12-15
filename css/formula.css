@@ -1,0 +1,28 @@
+html {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+body {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    justify-content: stretch;
+}
+.main {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: auto;
+}
+.main__outer {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*flex-direction: column;*/
+    /*flex-basis: 100%;*/
+}
