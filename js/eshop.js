@@ -75,6 +75,14 @@ function eventfilterCategoria(e) {
 	printCatalog (Newgoods);
 };
 
+// Функция сброса фильторов и сортировки
+function resetFilter() {
+		$("#ResultBasket").remove();
+		$(".catalog__item").remove();
+		printCatalog (goods);
+		
+};
+
 function eventShowDiscription(e) {
 	NameOfProduct = $(this).children(".catalog__item-name").text()
 	$(".catalog__item").remove();
@@ -158,11 +166,11 @@ $(function(e) {
 		
 		// Очистка категорий
 		$(".filter__categories").children().remove();
-		
-		// Сортировка товаров по цене	
-		// goods = sort(goods, sortCostUp);
+				
 		// Вывод каталога товаров	
 		printCatalog (goods);
+		// Вывод кол-во товаров больше и меньше 10 000
+		printMoreBefore10000 (goods);
 		
 		// Вывод категорий товаров
 		getCategories ();
@@ -181,24 +189,25 @@ $(function(e) {
 
 		// Сортировка фильтрации меньше 10 000
 		$("#less_10000").click(eventfilterBefore10000); 	
-	
 		// Сортировка фильтрации больше 10 000
 		$("#more_10000").click(eventfilterMore10000); 
-
 		// Сортировка по категориям
 		$(".categoriaName").click(eventfilterCategoria); 
-	
 		// Сброс всех фильтров
 		$("#resetFilter").click(resetFilter); 
 	
-	
-	
 		// Отрицовка информации о товаре
 		$(document).on('click','.catalog__item', eventShowDiscription); 
+		// Закрытие описания товара
+		$(document).on('click','#closeDiscription',function(event){
+			event.stopPropagation();
+			$(".catalog__item").remove();
+			printCatalog (Newgoods);
+				
+		});
 	
 		// добавление в корзину
-	 
-		$(document).on('click','#addBasket', function(event){
+	 	$(document).on('click','#addBasket', function(event){
 			event.stopPropagation();
 			NameOfProduct = $(this).parent().children(".catalog__item-name").text()
 			for (var i=0; i<goods.length; i++) {
@@ -215,32 +224,24 @@ $(function(e) {
 		 $("#backet").text("У вас в корзине "+basket.length+" товаров на общую сумму "+totalPrice);
 		}); 
 	 
-	// Отрисовка корзины
+		// Отрисовка корзины
 		$("#backet").click(eventShowBasket); 
-	// Удаление из корзины 	
-	$(document).on('click','#DeleteFromBacket', eventDeleteFromBacket);	
-	
-	// Закрытие корзины 	
-	$(document).on('click','#closeBasket', eventCloseBacket);	
-	// Закрытие описания товара
-	$(document).on('click','#closeDiscription',function(event){
-			event.stopPropagation();
-			$(".catalog__item").remove();
-			printCatalog (Newgoods);
-			
-					
-	});
+		// Удаление из корзины 	
+		$(document).on('click','#DeleteFromBacket', eventDeleteFromBacket);	
+		// Закрытие корзины 	
+		$(document).on('click','#closeBasket', eventCloseBacket);	
+		
 	
 	});
 
 });	
 	 
 		
-		
-	// Функия вывода категорий из массива
-	function getCategories () {
-		var arr = []; 
-		var data = 0;
+
+// Функия вывода категорий из массива
+function getCategories () {
+	var arr = []; 
+	var data = 0;
 		 goods.forEach(function (el) {
 			if (arr[el.category] == undefined) {
 				arr[el.category] = 1;
@@ -297,13 +298,15 @@ $(function(e) {
 		return a.category == CategoriaName;
 	};
 	
-	// Функция сброса фильторов и сортировки
-	function resetFilter() {
-		$("#ResultBasket").remove();
-		$(".catalog__item").remove();
-		printCatalog (goods);
+	// Вывол кол-во товаров стоимостью больше 10000 и меньше 10000
+	function printMoreBefore10000 (gds) {
+		var befote10000, more10000;
+		more10000 = filt(goods, filterMore10000);
+		befote10000 = filt(goods, filterBefore10000);
+		$("#less_10000").children(".badge").text(befote10000.length);
+		$("#more_10000").children(".badge").text(more10000.length);
 		
-	};
+	}
 	
 	
 	// Вывод каталога товаров
@@ -340,7 +343,7 @@ $(function(e) {
 				result.push(val);
 			}
 		}
-		console.log(result);
+		
 		return result;
 	};
 
