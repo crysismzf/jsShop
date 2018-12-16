@@ -5,7 +5,7 @@ var CategoriaName;
 // Массив с товарами в корзине
 var basket = [];
 
-
+// Обработчики событий
 
 function eventSortByCostUp (e) {
 	$(".catalog__item").remove();
@@ -257,6 +257,8 @@ function getCategories () {
 				
 		};
 	};
+	
+	// Правила
 	
 	// Функция сортировки товаров по цене
 	function sortCostUp(a,b) {
