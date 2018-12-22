@@ -79,6 +79,7 @@ function eventfilterCategoria(e) {
 function resetFilter() {
 		$("#ResultBasket").remove();
 		$(".catalog__item").remove();
+		Newgoods = goods;
 		printCatalog (goods);
 		
 };
