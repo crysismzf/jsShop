@@ -35,7 +35,7 @@ function eventSortByVogueUp(e) {
 	$(".catalog__item").remove();
 	$("#ResultBasket").remove();
 	Newgoods = sort(Newgoods, sortVogueUp);
-	printCatalog (goods);
+	printCatalog (Newgoods);
 };
 function eventSortByVogueDown(e) {
 	$(".catalog__item").remove();
